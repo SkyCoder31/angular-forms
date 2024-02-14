@@ -1,0 +1,14 @@
+<p>observable works!</p>
+<div>
+    <button type="submit" routerLink='/observable' routerLinkActive="active" [queryParams]="{name:2,orderBy:2}" class="btn btn-outline-danger btn-lg text-center">Click mar abar</button>
+    <button (click)="onSubmit()" class="btn btn-outline-warning btn-lg text-center">Submit</button>
+
+    <button (click) ='addNewData()'> Add new</button>
+    <ul>
+        <li *ngFor="let item of servicearr">
+            {{item.id}}
+        </li>
+        
+    </ul>
+</div>
+<h1>{{str}}</h1>

@@ -1,0 +1,9 @@
+<p>arrayrouting works!</p>
+<div class="bx--row" *ngFor="let obj of arr;let i=index">
+    <span class="bx--col-xs-5 bx--col-md-5"> {{obj.moviename}} :</span>
+    <!-- <span class="bx--col-xs-5 bx--col-md-5">{{obj.rating}} </span> -->
+    <button [routerLink]="['/moviebutton', i, obj.moviegenre, obj.rating]" routerLinkActive="router-link-active" >more</button>
+    
+</div>
+
+

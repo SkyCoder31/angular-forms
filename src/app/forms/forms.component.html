@@ -1,0 +1,48 @@
+<div class="container mt-5">
+  <div class="form-area">
+    <form #f='ngForm' (submit)="OnSubmit(f)">
+
+      <label for="Name" class="form-label">Fill Name</label>
+      <div class="form-group"><input class="form-control" type="text" name="name" ngModel #name='ngModel' (change)="getValue(name)" required [ngClass]="{'is-invalid':name.invalid}" minlength="5" maxlength="10" id="name" placeholder="Full Name">
+
+          <div *ngIf="name.errors?.['required']">
+            <div class="alert alert-danger" *ngIf="name.touched && name.invalid">Invalid Name</div>
+          </div>
+          <div *ngIf="name.errors?.['minlength']">
+            <div class="alert alert-danger" *ngIf="name.touched && name.invalid">Invalid Length</div>
+          </div>
+          <div *ngIf="name.errors?.['maxlength']">
+          </div>
+      </div>
+      <br>
+
+
+      <label for="Email" class="form-label"> Fill Email Address</label>
+      <div class="form-group"><input class="form-control" type="email" name="email" ngModel email #email='ngModel' (change)="getValue(email)" required [ngClass]="{'is-invalid':email.invalid}" id="email" placeholder="Email">
+
+          <div *ngIf="email.errors?.['required']">
+            <div class="alert alert-danger" *ngIf="email.touched && email.invalid">Invalid Email!</div>
+          </div>
+          <div class="alert alert-danger" *ngIf="email.touched && email.invalid">Invalid Email!</div>
+      </div>
+      <br>
+          
+
+
+      <label for="Address" class="form-label">Fill Address</label>
+      <div class="form-group"><textarea class="form-control" name="address" style="height: 100px;"ngModel #address='ngModel' (change)="getValue(address)" [ngClass]="{'is-invalid':address.invalid}" required id="address" placeholder="Address"></textarea></div>
+
+      <div *ngIf="address.errors?.['required']">
+        <div class="alert alert-danger" *ngIf="address.touched && address.invalid">Invalid Name</div>
+      </div>
+      <br>
+
+
+      <button type="submit" class="btn btn-warning mb-4" [disabled]="f.invalid">Submit fast nigga!!</button><br>
+    </form>
+  </div>
+</div>
+
+
+
+<p>forms works!</p>
